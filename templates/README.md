@@ -1,8 +1,8 @@
-# CSS-DCS-DashboardUX
+# README
 
 ## Introduction
 
-This is the UX and Web API for hosting catalog onboarding for diagnostics. It is arranged into 2 different projects. The Angular web client is developed in the `webclient` and the WebAPI is developed in the `webapi`.
+This is the UX and Web API for hosting catalog onboarding for diagnostics. It is arranged into 2 different projects. The Angular web client is developed in the `<%= webapifoldername %>` folder and the WebAPI is developed in the `<%= webclientfoldername %>` folder.
 
 ## Getting Started
 
@@ -27,13 +27,13 @@ To get the entire project running locally run `run.cmd`.
 ### Debugging Client Code
 
 1. Open the browser's dev tools by pressing F12
-2. In the "sources" tab on the "Filesystem" panel, click the "+" button and select your `webclient` folder.
+2. In the "sources" tab on the "Filesystem" panel, click the "+" button and select your `<%= webclientfoldername %>` folder.
 3. Set a breakpoint & you should be set. You can even do full development in this tool (however, it is easier in VSCode).
 
 ### Debugging Web API Code
 
 1. Close the command window hosting the CatalogWebApi (recognizable by the "Microsoft.Hosting.Lifetime" text in the window)
-2. Open `webapi\webapi.csproj` in visual studio
+2. Open `<%= webapifoldername %>\<%= webapiname %>.csproj` in visual studio
 3. Make sure the "webapi" launch profile is selected in the debug dropdown (just to the right of the "Any CPU" dropdown).
 4. Press "F5" to start the application in debug mode.
 
@@ -67,13 +67,11 @@ More commands or parameters can be found by running `ng help` or `ng <command> -
 Environmental options relate to our stages to include the following options:
 
 - Development: Local development on our dev machines
-- Dev: Dev stage on Azure
-- PPE: PPE stage on Azure
 - Production: Prod stage on azure
 
 ### CatalogClient
 
-In the CatalogClient the above environments show up as different `environment.*.ts` files to define different settings for each. These settings are defined at compile time which is why the official build in `ApplicationBuild.yaml` builds each environment separately and stores them in the `CatalogWebApi\wwwroot\<env>` folder.
+In the CatalogClient the above environments show up as different `environment.*.ts` files to define different settings for each. These settings are defined at compile time which is why the official build in `ApplicationBuild.yaml` builds each environment separately and stores them in the `<%= webapifoldername %>\wwwroot\<env>` folder.
 
 Note that the `environment.ts` file defines properties for the local development environment. See table below.
 
@@ -87,7 +85,5 @@ Note that the `appsettings.json` defines production settings in contrast with th
 Environment | CatalogClient       | CatalogWebApi
 ------------|---------------------|-------------------------------
 Local Dev   | environment.ts      | appsettings.Development.json
-Dev         | environment.dev.ts  | appsettings.Dev.json
-PPE         | environment.ppe.ts  | appsettings.PPE.json
 Prod        | environment.prod.ts | appsettings.json
 ```
