@@ -7,7 +7,7 @@ import { Account, AuthError, AuthResponse } from 'msal';
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent implements OnInit {
-  title = 'coowner-client';
+  title = '<%= webclientname %>';
   currentAccount: Account;
 
   constructor(private msalService: MsalService, private broadcastService: BroadcastService) {

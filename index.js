@@ -46,7 +46,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "webapiassemblyname",
-        message: "Your Web API assembly name",
+        message: "Your Web API assembly name:",
         default: (p) => p.webapiname,
         validate: (i) => this._isNotEmptyString(i)
       },
@@ -160,8 +160,8 @@ module.exports = class extends Generator {
       return;
     }
 
-    await this.spawnCommand("dotnet", ["restore", "webapi.csproj"], { cwd: "webapi" });
-    await this.spawnCommand("npm", ["install"], { cwd: "webclient" });
+    await this.spawnCommand("dotnet", ["restore", `${this.params.webapiname}.csproj`], { cwd: this.params.webapifoldername });
+    await this.spawnCommand("npm", ["install"], { cwd: this.params.webclientfoldername });
   }
 
   _isNotEmptyString(i, minLength) {

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'coowner-client'`, () => {
+  it(`should have as title '<%= webclientname %>'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('coowner-client');
+    expect(app.title).toEqual('<%= webclientname %>');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('coowner-client app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('<%= webclientname %> app is running!');
   });
 });
