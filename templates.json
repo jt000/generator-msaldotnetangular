@@ -1,0 +1,224 @@
+{
+  "files": [
+    {
+      "source": "generateWebApiClient.ps1",
+      "destination": "generateWebApiClient.ps1"
+    },
+    {
+      "source": "README.md",
+      "destination": "README.md"
+    },
+    {
+      "source": "run.cmd",
+      "destination": "run.cmd"
+    },
+    {
+      "source": "webapi\\appsettings.Development.json",
+      "destination": "<%= webapifoldername %>\\appsettings.Development.json"
+    },
+    {
+      "source": "webapi\\appsettings.json",
+      "destination": "<%= webapifoldername %>\\appsettings.json"
+    },
+    {
+      "source": "webapi\\Controllers\\PingController.cs",
+      "destination": "<%= webapifoldername %>\\Controllers\\PingController.cs"
+    },
+    {
+      "source": "webapi\\Options\\CoOwnerApiOptions.cs",
+      "destination": "<%= webapifoldername %>\\Options\\CoOwnerApiOptions.cs"
+    },
+    {
+      "source": "webapi\\Program.cs",
+      "destination": "<%= webapifoldername %>\\Program.cs"
+    },
+    {
+      "source": "webapi\\Properties\\launchSettings.json",
+      "destination": "<%= webapifoldername %>\\Properties\\launchSettings.json"
+    },
+    {
+      "source": "webapi\\Startup.cs",
+      "destination": "<%= webapifoldername %>\\Startup.cs"
+    },
+    {
+      "source": "webapi\\UserRoles.cs",
+      "destination": "<%= webapifoldername %>\\UserRoles.cs"
+    },
+    {
+      "source": "webapi\\WebApi.csproj",
+      "destination": "<%= webapifoldername %>\\<%= webapiname %>.csproj"
+    },
+    {
+      "source": "webclient\\angular.json",
+      "destination": "<%= webclientfoldername %>\\angular.json"
+    },
+    {
+      "source": "webclient\\e2e\\protractor.conf.js",
+      "destination": "<%= webclientfoldername %>\\e2e\\protractor.conf.js"
+    },
+    {
+      "source": "webclient\\e2e\\src\\app.e2e-spec.ts",
+      "destination": "<%= webclientfoldername %>\\e2e\\src\\app.e2e-spec.ts"
+    },
+    {
+      "source": "webclient\\e2e\\src\\app.po.ts",
+      "destination": "<%= webclientfoldername %>\\e2e\\src\\app.po.ts"
+    },
+    {
+      "source": "webclient\\e2e\\tsconfig.json",
+      "destination": "<%= webclientfoldername %>\\e2e\\tsconfig.json"
+    },
+    {
+      "source": "webclient\\karma.conf.js",
+      "destination": "<%= webclientfoldername %>\\karma.conf.js"
+    },
+    {
+      "source": "webclient\\package.json",
+      "destination": "<%= webclientfoldername %>\\package.json"
+    },
+    {
+      "source": "webclient\\README.md",
+      "destination": "<%= webclientfoldername %>\\README.md"
+    },
+    {
+      "source": "webclient\\src\\app\\app-routing.module.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\app-routing.module.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\app.component.spec.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\app.component.spec.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\app.component.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\app.component.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\app.module.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\app.module.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\auth-root\\auth-root.component.html",
+      "destination": "<%= webclientfoldername %>\\src\\app\\auth-root\\auth-root.component.html"
+    },
+    {
+      "source": "webclient\\src\\app\\auth-root\\auth-root.component.scss",
+      "destination": "<%= webclientfoldername %>\\src\\app\\auth-root\\auth-root.component.scss"
+    },
+    {
+      "source": "webclient\\src\\app\\auth-root\\auth-root.component.spec.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\auth-root\\auth-root.component.spec.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\auth-root\\auth-root.component.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\auth-root\\auth-root.component.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\home\\home.component.html",
+      "destination": "<%= webclientfoldername %>\\src\\app\\home\\home.component.html"
+    },
+    {
+      "source": "webclient\\src\\app\\home\\home.component.scss",
+      "destination": "<%= webclientfoldername %>\\src\\app\\home\\home.component.scss"
+    },
+    {
+      "source": "webclient\\src\\app\\home\\home.component.spec.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\home\\home.component.spec.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\home\\home.component.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\home\\home.component.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\package.json",
+      "destination": "<%= webclientfoldername %>\\src\\app\\package.json"
+    },
+    {
+      "source": "webclient\\src\\environments\\environment.prod.ts",
+      "destination": "<%= webclientfoldername %>\\src\\environments\\environment.prod.ts"
+    },
+    {
+      "source": "webclient\\src\\environments\\environment.ts",
+      "destination": "<%= webclientfoldername %>\\src\\environments\\environment.ts"
+    },
+    {
+      "source": "webclient\\src\\favicon.ico",
+      "destination": "<%= webclientfoldername %>\\src\\favicon.ico"
+    },
+    {
+      "source": "webclient\\src\\index.html",
+      "destination": "<%= webclientfoldername %>\\src\\index.html"
+    },
+    {
+      "source": "webclient\\src\\main.ts",
+      "destination": "<%= webclientfoldername %>\\src\\main.ts"
+    },
+    {
+      "source": "webclient\\src\\polyfills.ts",
+      "destination": "<%= webclientfoldername %>\\src\\polyfills.ts"
+    },
+    {
+      "source": "webclient\\src\\styles.scss",
+      "destination": "<%= webclientfoldername %>\\src\\styles.scss"
+    },
+    {
+      "source": "webclient\\src\\test.ts",
+      "destination": "<%= webclientfoldername %>\\src\\test.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\api.module.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\api.module.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\api\\api.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\api\\api.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\api\\ping.service.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\api\\ping.service.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\configuration.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\configuration.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\encoder.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\encoder.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\git_push.sh",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\git_push.sh"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\index.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\index.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\model\\models.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\model\\models.ts"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\ng-package.json",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\ng-package.json"
+    },
+    {
+      "source": "webclient\\src\\webapiclient\\variables.ts",
+      "destination": "<%= webclientfoldername %>\\src\\webapiclient\\variables.ts"
+    },
+    {
+      "source": "webclient\\tsconfig.app.json",
+      "destination": "<%= webclientfoldername %>\\tsconfig.app.json"
+    },
+    {
+      "source": "webclient\\tsconfig.json",
+      "destination": "<%= webclientfoldername %>\\tsconfig.json"
+    },
+    {
+      "source": "webclient\\tsconfig.spec.json",
+      "destination": "<%= webclientfoldername %>\\tsconfig.spec.json"
+    },
+    {
+      "source": "webclient\\tslint.json",
+      "destination": "<%= webclientfoldername %>\\tslint.json"
+    }
+  ]
+}
