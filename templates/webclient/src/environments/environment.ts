@@ -8,12 +8,14 @@ export const environment = {
 
   authInfo: {
     clientId: '<%= aadWebClientAppIdDev %>',
-    authority: 'https://login.microsoftonline.com/<%= aadTenantId %>',
+    authority: 'https://<%= aadTenantDomainName %>.b2clogin.com/<%= aadTenantDomainName
+ %>.onmicrosoft.com/<%= aadB2CSignInPolicyName %>',
     consentScopes: [
-      'https://graph.microsoft.com/User.Read'
+      'https://graph.microsoft.com/offline_access',
+      'https://graph.microsoft.com/openid'
     ],
     protectedResourceMap: new Map<string, string[]>([
-      ['https://localhost:5001', ['<%= aadWebApiAppIdDev %>/user_impersonation']]
+      ['https://localhost:5001', ['https://<%= aadTenantDomainName %>.onmicrosoft.com/<%= aadWebApiAppIdDev %>/user_impersonation']]
     ])
   },
 

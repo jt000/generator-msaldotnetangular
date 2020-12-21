@@ -3,6 +3,7 @@ import { HttpResponse, HttpErrorResponse, HttpClient } from '@angular/common/htt
 import { catchError } from 'rxjs/operators';
 import { PingService, Configuration } from '../../webapiclient';
 import { environment } from 'src/environments/environment';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private $httpClient: HttpClient) {
     this.pingSvc = new PingService(this.$httpClient, environment.webApi.url, new Configuration({withCredentials: false}));
-
   }
 
   async ngOnInit(): Promise<void> {
@@ -25,15 +25,23 @@ export class HomeComponent implements OnInit {
     this.pingStatus = 'pending';
     this.pingSvc.apiPingGet()
       .pipe(
-        catchError((e: HttpErrorResponse, caught) => { this.pingStatus = `error: ${e.message}`; return caught; })
-      ).subscribe((r: HttpResponse<void>) => { this.pingStatus = `response: ${r.statusText}`; });
-
+        catchError((e: HttpErrorResponse, caught) =>
+        {
+          return of(`error: ${e.message}`);
+        })
+      ).subscribe((r: string) => {
+        this.pingStatus = r || 'success';
+      });
 
     this.adminStatus = 'pending';
     this.pingSvc.apiPingAdminGet()
       .pipe(
-        catchError((e: HttpErrorResponse, caught) => { this.adminStatus = `error: ${e.message}`; return caught; })
-      ).subscribe((r: HttpResponse<void>) => { this.adminStatus = `response: ${r.statusText}`; });
+        catchError((e: HttpErrorResponse, caught) => 
+        { 
+          return of(`error: ${e.message}`);
+        })
+      ).subscribe((r: string) => { 
+        this.adminStatus = r || 'success'; 
+      });
   }
-
 }

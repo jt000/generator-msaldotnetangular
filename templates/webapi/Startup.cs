@@ -5,13 +5,17 @@
 namespace <%= webapirootnamespace %>
 {
     using System.IO;
+    using System.Net;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.AzureAD.UI;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.Identity.Web;
+    using Microsoft.IdentityModel.Logging;
     using Microsoft.OpenApi.Models;
     using Options;
 
@@ -19,6 +23,11 @@ namespace <%= webapirootnamespace %>
     {
         public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
         {
+#if DEBUG
+            IdentityModelEventSource.ShowPII = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+#endif
+
             this.Configuration = configuration;
             this.CurrentEnvironment = webHostEnvironment;
         }
@@ -34,7 +43,7 @@ namespace <%= webapirootnamespace %>
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CoOwnerApiOptions>(options => this.Configuration.Bind("CoOwnerApi", options));
-            services.Configure<AzureADOptions>(options => this.Configuration.Bind("AzureAd", options));
+            services.Configure<JwtBearerOptions>(options => this.Configuration.Bind("AzureAd", options));
 
             services.AddSpaStaticFiles(configuration =>
             {
@@ -43,12 +52,12 @@ namespace <%= webapirootnamespace %>
 
             services.AddApplicationInsightsTelemetry();
 
-            services.AddAuthentication(AzureADDefaults.BearerAuthenticationScheme)
-                    .AddAzureADBearer(options => this.Configuration.Bind("AzureAd", options));
+            services.AddMicrosoftIdentityWebApiAuthentication(this.Configuration, "AzureAd");
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(UserRoles.Administrator, policy => policy.RequireRole("Administrator"));
+                // TODO: Not working with B2C
+                options.AddPolicy(UserRoles.Administrator, policy => policy.RequireRole(UserRoles.Administrator));
             });
 
             services.AddCors(options =>
@@ -91,17 +100,17 @@ namespace <%= webapirootnamespace %>
                 app.UseSpaStaticFiles();
             }
 
+            app.UseCors(policy =>
+            {
+                policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            });
+
             app.UseSwagger();
 
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseCors(policy =>
-            {
-                policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
-            });
 
             app.UseEndpoints(endpoints =>
             {

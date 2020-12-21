@@ -33,7 +33,7 @@ const HttpInterceptorProvider = {
       auth: {
         clientId: environment.authInfo.clientId,
         authority: environment.authInfo.authority,
-        validateAuthority: true,
+        validateAuthority: false,
         navigateToLoginRequestUrl: false,
         redirectUri: window.location.origin
       },

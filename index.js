@@ -81,16 +81,14 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "aadTenantDomainName",
-        message: "Your AAD Tenant Domain Name:",
-        validate: (i) => this._isNotEmptyString(i),
-        store: true
+        message: "Your Azure Active Directory tenant name (ex: contosob2c):",
+        validate: (i) => this._isNotEmptyString(i)
       },
       {
         type: "input",
-        name: "aadTenantId",
-        message: "Your AAD Tenant Id:",
-        validate: (i) => this._isValidGuid(i),
-        store: true
+        name: "aadB2CSignInPolicyName",
+        message: "Your AAD B2C Sign-In Policy Name (ex: B2C_1_signupsignin1):",
+        validate: (i) => this._isNotEmptyString(i)
       },
       {
         type: "input",
@@ -120,7 +118,6 @@ module.exports = class extends Generator {
         type: "input",
         name: "prodWebApiUriRoot",
         message: "Your Url for the deployed Web API Prod:",
-        default: (p) => `https://api.${p.aadTenantDomainName}/`,
         validate: (i) => this._isNotEmptyString(i)
       }
     ]);
