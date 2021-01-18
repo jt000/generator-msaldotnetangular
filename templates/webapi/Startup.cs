@@ -56,8 +56,9 @@ namespace <%= webapirootnamespace %>
 
             services.AddAuthorization(options =>
             {
-                // TODO: Not working with B2C
-                options.AddPolicy(UserRoles.Administrator, policy => policy.RequireRole(UserRoles.Administrator));
+                // Consider adding a SCOPE for client support
+                //
+                // options.AddPolicy(UserRoles.UserImpersonation, policy => policy.Requirements.Add(new ScopesRequirement("user_impersonation")));
             });
 
             services.AddCors(options =>

@@ -28,7 +28,7 @@ namespace <%= webapirootnamespace %>.Controllers
         }
 
         [HttpGet("admin")]
-        [Authorize(UserRoles.Administrator)]
+        [Authorize()]
         public IActionResult GetAdmin()
         {
             this.logger.LogTrace("Ping admin received");

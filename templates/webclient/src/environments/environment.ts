@@ -8,8 +8,7 @@ export const environment = {
 
   authInfo: {
     clientId: '<%= aadWebClientAppIdDev %>',
-    authority: 'https://<%= aadTenantDomainName %>.b2clogin.com/<%= aadTenantDomainName
- %>.onmicrosoft.com/<%= aadB2CSignInPolicyName %>',
+    authority: 'https://<%= aadTenantDomainName %>.b2clogin.com/<%= aadTenantDomainName %>.onmicrosoft.com/<%= aadB2CSignInPolicyName %>',
     consentScopes: [
       'https://graph.microsoft.com/offline_access',
       'https://graph.microsoft.com/openid'
