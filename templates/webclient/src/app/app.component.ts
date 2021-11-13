@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MsalService, BroadcastService } from '@azure/msal-angular';
-import { Account, AuthError, AuthResponse } from 'msal';
+import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
+import { AccountInfo } from '@azure/msal-common';
 
 @Component({
   selector: 'app-root',
@@ -8,27 +8,20 @@ import { Account, AuthError, AuthResponse } from 'msal';
 })
 export class AppComponent implements OnInit {
   title = '<%= webclientname %>';
-  currentAccount: Account;
+  currentAccount: AccountInfo | null;
 
-  constructor(private msalService: MsalService, private broadcastService: BroadcastService) {
+  constructor(private msalService: MsalService, private broadcastService: MsalBroadcastService) {
   }
 
   ngOnInit(): void {
-    this.currentAccount = this.msalService.getAccount();
+    this.currentAccount = this.msalService.instance.getActiveAccount();
 
-    this.msalService.handleRedirectCallback(this.onHandleCallback);
+    this.msalService.instance.handleRedirectPromise()
+      .then(r => console.log('Redirect success: ', r?.account))
+      .catch(err => console.error('Redirect error: ', err));
 
-    this.broadcastService.subscribe('msal:loginFailure', () => {
+    this.broadcastService.inProgress$.subscribe(() => {}, () => {
       this.msalService.loginRedirect();
     });
-  }
-
-  onHandleCallback(redirectError: AuthError, redirectResponse: AuthResponse) {
-    if (redirectError) {
-      console.error('Redirect error: ', redirectError);
-      return;
-    }
-
-    console.log('Redirect success: ', redirectResponse);
   }
 }

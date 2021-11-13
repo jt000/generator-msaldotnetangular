@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-import {MsalModule, MsalInterceptor} from '@azure/msal-angular';
+import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
+import { PublicClientApplication, InteractionType } from "@azure/msal-browser";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ const HttpInterceptorProvider = {
   multi: true,
 };
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,22 +31,24 @@ const HttpInterceptorProvider = {
     AppRoutingModule,
     HttpClientModule,
     ApiModule,
-    MsalModule.forRoot({
+    MsalModule.forRoot(new PublicClientApplication({
       auth: {
         clientId: environment.authInfo.clientId,
         authority: environment.authInfo.authority,
-        validateAuthority: true,
         navigateToLoginRequestUrl: false,
         redirectUri: window.location.origin
       },
-      framework: {
-        protectedResourceMap: environment.authInfo.protectedResourceMap
-      }
+    }),
+    {
+      interactionType: InteractionType.Redirect,
+      authRequest: {
+        scopes: environment.authInfo.consentScopes,
+        extraQueryParameters: {}
+      },
     },
     {
-      popUp: false,
-      consentScopes: environment.authInfo.consentScopes,
-      extraQueryParameters: {}
+      interactionType: InteractionType.Redirect,
+      protectedResourceMap: environment.authInfo.protectedResourceMap
     }),
   ],
   providers: [
@@ -52,4 +56,5 @@ const HttpInterceptorProvider = {
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
