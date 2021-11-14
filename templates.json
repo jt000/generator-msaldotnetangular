@@ -53,6 +53,10 @@
       "destination": "<%= webclientfoldername %>\\angular.json"
     },
     {
+      "source": "webclient\\localhost.cert",
+      "destination": "<%= webclientfoldername %>\\localhost.cert"
+    },
+    {
       "source": "webclient\\e2e\\protractor.conf.js",
       "destination": "<%= webclientfoldername %>\\e2e\\protractor.conf.js"
     },

@@ -68,6 +68,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "sslCert": "localhost.cert",
           "options": {
             "browserTarget": "<%= webclientfoldername %>:build"
           },
