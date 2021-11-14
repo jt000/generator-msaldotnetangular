@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpResponse, HttpErrorResponse, HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
+import { HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { catchError, retryWhen, delay, concatMap } from 'rxjs/operators';
 import { PingService, Configuration } from '../../webapiclient';
 import { environment } from 'src/environments/environment';
+import { EMPTY, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -25,15 +26,23 @@ export class HomeComponent implements OnInit {
     this.pingStatus = 'pending';
     this.pingSvc.apiPingGet()
       .pipe(
-        catchError((e: HttpErrorResponse, caught) => { this.pingStatus = `error: ${e.message}`; return caught; })
-      ).subscribe((r: HttpResponse<void>) => { this.pingStatus = `response: ${r.statusText}`; });
+        retryWhen(e => e.pipe(
+          delay(3000),
+          concatMap((v, i) => i === 2 ? throwError(v) : [v])
+        )),
+        catchError((e: HttpErrorResponse) => { this.pingStatus = `error: ${e.message}`; return EMPTY; })
+      ).subscribe(() => { this.pingStatus = 'OK'; });
 
 
     this.adminStatus = 'pending';
     this.pingSvc.apiPingAdminGet()
       .pipe(
-        catchError((e: HttpErrorResponse, caught) => { this.adminStatus = `error: ${e.message}`; return caught; })
-      ).subscribe((r: HttpResponse<void>) => { this.adminStatus = `response: ${r.statusText}`; });
+        retryWhen(e => e.pipe(
+          delay(3000),
+          concatMap((v, i) => i === 2 ? throwError(v) : [v])
+        )),
+        catchError((e: HttpErrorResponse) => { this.adminStatus = `error: ${e.message}`; return EMPTY; })
+      ).subscribe(() => { this.adminStatus = 'OK'; });
   }
 
 }

@@ -11,7 +11,7 @@ CatalogWebApi/wwwroot/**
 */bin
 
 # dependencies
-*/node_modules
+**/node_modules
 
 # IDE - VS
 **/.vs

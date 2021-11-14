@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { MsalModule, MsalInterceptor } from '@azure/msal-angular';
-import { PublicClientApplication, InteractionType } from "@azure/msal-browser";
+import { PublicClientApplication, InteractionType } from '@azure/msal-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,14 +11,13 @@ import { environment } from 'src/environments/environment';
 import { AuthRootComponent } from './auth-root/auth-root.component';
 import { HomeComponent } from './home/home.component';
 
-import {ApiModule} from '../webapiclient';
+import { ApiModule } from '../webapiclient';
 
-const HttpInterceptorProvider = {
+const HTTP_INTERCEPTOR_PROVIDER = {
   provide: HTTP_INTERCEPTORS,
   useClass: MsalInterceptor,
   multi: true,
 };
-
 
 @NgModule({
   declarations: [
@@ -52,7 +51,7 @@ const HttpInterceptorProvider = {
     }),
   ],
   providers: [
-    HttpInterceptorProvider,
+    HTTP_INTERCEPTOR_PROVIDER,
   ],
   bootstrap: [AppComponent]
 })

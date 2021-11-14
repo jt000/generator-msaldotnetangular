@@ -13,6 +13,10 @@
       "destination": "run.cmd"
     },
     {
+      "source": ".gitignore",
+      "destination": ".gitignore"
+    },
+    {
       "source": "webapi\\appsettings.Development.json",
       "destination": "<%= webapifoldername %>\\appsettings.Development.json"
     },
@@ -221,8 +225,12 @@
       "destination": "<%= webclientfoldername %>\\tsconfig.spec.json"
     },
     {
-      "source": "webclient\\tslint.json",
-      "destination": "<%= webclientfoldername %>\\tslint.json"
+      "source": "webclient\\.eslintignore",
+      "destination": "<%= webclientfoldername %>\\.eslintignore"
+    },
+    {
+      "source": "webclient\\.eslintrc.json",
+      "destination": "<%= webclientfoldername %>\\.eslintrc.json"
     }
   ]
 }
