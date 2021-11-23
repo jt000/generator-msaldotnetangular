@@ -12,4 +12,4 @@ dotnet restore --interactive
 popd
 
 start cmd.exe /c "cd <%= webapifoldername %> && dotnet run -c Debug --launch-profile webapi"
-start cmd.exe /c "cd <%= webclientfoldername %> && ng serve --ssl=true --open --port 4200"
+start cmd.exe /c "cd <%= webclientfoldername %> && ng serve --ssl=true --open --port 4200 --configuration development"

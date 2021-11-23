@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MsalGuard } from '@azure/msal-angular';
 import { AuthRootComponent } from './auth-root/auth-root.component';
 import { HomeComponent } from './home/home.component';
+import { LoginFailedComponent } from './login-failed/login-failed.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
         component: HomeComponent
       }
     ]
+  },
+  {
+    path: 'login-failed',
+    component: LoginFailedComponent,
   }
 ];
 

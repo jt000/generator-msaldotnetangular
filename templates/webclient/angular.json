@@ -33,7 +33,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.slim.js",
+              "./node_modules/popper.js/dist/umd/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -64,7 +68,26 @@
                 }
               ]
             },
-            "development": {}
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "extractLicenses": true,
+              "vendorChunk": true,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "6mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
           },
           "defaultConfiguration": "production"
         },
@@ -78,7 +101,8 @@
             },
             "development": {
               "browserTarget": "<%= webclientfoldername %>:build:development",
-              "sslCert": "localhost.cert"
+              "sslCert": "./ssl/localhost.crt",
+              "sslKey": "./ssl/localhost.key"
             }
           },
           "defaultConfiguration": "development"

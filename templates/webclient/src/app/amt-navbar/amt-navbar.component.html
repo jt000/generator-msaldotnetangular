@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <%= companyName %>
+    </a>
+
+    <div class="navbar-nav mr-auto">
+
+        <div class="nav-item">
+            <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </div>
+        <div class="nav-item">
+            <a class="nav-link" routerLink="login-failed" routerLinkActive="active">Test</a>
+        </div>
+    </div>
+    <div class="navbar-nav ml-auto">
+
+        <div class="nav-item dropdown mr-1" *ngIf="loggedInUser">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-toggle="dropdown" aria-expanded="false">
+                {{loggedInUser}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#" (click)="signOut()">Sign out</a>
+            </div>
+        </div>
+
+    </div>
+
+</nav>

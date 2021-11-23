@@ -57,10 +57,6 @@
       "destination": "<%= webclientfoldername %>\\angular.json"
     },
     {
-      "source": "webclient\\localhost.cert",
-      "destination": "<%= webclientfoldername %>\\localhost.cert"
-    },
-    {
       "source": "webclient\\e2e\\protractor.conf.js",
       "destination": "<%= webclientfoldername %>\\e2e\\protractor.conf.js"
     },
@@ -89,6 +85,10 @@
       "destination": "<%= webclientfoldername %>\\README.md"
     },
     {
+      "source": "webclient\\src\\assets\\error_103x103.png",
+      "destination": "<%= webclientfoldername %>\\src\\assets\\error_103x103.png"
+    },
+    {
       "source": "webclient\\src\\app\\app-routing.module.ts",
       "destination": "<%= webclientfoldername %>\\src\\app\\app-routing.module.ts"
     },
@@ -99,6 +99,14 @@
     {
       "source": "webclient\\src\\app\\app.component.ts",
       "destination": "<%= webclientfoldername %>\\src\\app\\app.component.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\app.component.html",
+      "destination": "<%= webclientfoldername %>\\src\\app\\app.component.html"
+    },
+    {
+      "source": "webclient\\src\\app\\app.component.scss",
+      "destination": "<%= webclientfoldername %>\\src\\app\\app.component.scss"
     },
     {
       "source": "webclient\\src\\app\\app.module.ts",
@@ -121,6 +129,22 @@
       "destination": "<%= webclientfoldername %>\\src\\app\\auth-root\\auth-root.component.ts"
     },
     {
+      "source": "webclient\\src\\app\\amt-navbar\\amt-navbar.component.html",
+      "destination": "<%= webclientfoldername %>\\src\\app\\amt-navbar\\amt-navbar.component.html"
+    },
+    {
+      "source": "webclient\\src\\app\\amt-navbar\\amt-navbar.component.scss",
+      "destination": "<%= webclientfoldername %>\\src\\app\\amt-navbar\\amt-navbar.component.scss"
+    },
+    {
+      "source": "webclient\\src\\app\\amt-navbar\\amt-navbar.component.spec.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\amt-navbar\\amt-navbar.component.spec.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\amt-navbar\\amt-navbar.component.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\amt-navbar\\amt-navbar.component.ts"
+    },
+    {
       "source": "webclient\\src\\app\\home\\home.component.html",
       "destination": "<%= webclientfoldername %>\\src\\app\\home\\home.component.html"
     },
@@ -135,6 +159,22 @@
     {
       "source": "webclient\\src\\app\\home\\home.component.ts",
       "destination": "<%= webclientfoldername %>\\src\\app\\home\\home.component.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\login-failed\\login-failed.component.html",
+      "destination": "<%= webclientfoldername %>\\src\\app\\login-failed\\login-failed.component.html"
+    },
+    {
+      "source": "webclient\\src\\app\\login-failed\\login-failed.component.scss",
+      "destination": "<%= webclientfoldername %>\\src\\app\\login-failed\\login-failed.component.scss"
+    },
+    {
+      "source": "webclient\\src\\app\\login-failed\\login-failed.component.spec.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\login-failed\\login-failed.component.spec.ts"
+    },
+    {
+      "source": "webclient\\src\\app\\login-failed\\login-failed.component.ts",
+      "destination": "<%= webclientfoldername %>\\src\\app\\login-failed\\login-failed.component.ts"
     },
     {
       "source": "webclient\\src\\app\\package.json",

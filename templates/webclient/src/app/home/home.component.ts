@@ -12,6 +12,7 @@ import { EMPTY, throwError } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
+  public environment = environment.name;
   public pingStatus = '';
   public adminStatus = '';
   private pingSvc: PingService;
